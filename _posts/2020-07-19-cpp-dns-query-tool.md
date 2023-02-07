@@ -68,7 +68,7 @@ Well, you don't really need to reverse engineer anything because the domain syst
 
 Wireshark will let you inspect all your network traffic and you can clearly see what kind of data is exchanged between you and the DNS server.
 
-![Wireshark](/img/cpp-dns-query-tool/dns-wireshark.png)
+![Wireshark](/assets/img/dns-wireshark.png)
 
 #### 2. You talk to DNS servers through UDP at port 53
 
