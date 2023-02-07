@@ -9,4 +9,8 @@ minima:
     - { platform: linkedin, user_url: "https://www.linkedin.com/in/dorin131/" }
     - { platform: devto, user_url: "https://dev.to/dorin" }
     - { platform: instagram, user_url: "https://www.instagram.com/the.bird.diary" }
-    
+defaults:
+  - scope:
+      path: "assets/img"
+    values:
+      image: true
