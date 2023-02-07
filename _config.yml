@@ -1,2 +1,4 @@
 theme: minima
 author: Dorin Fodor
+disqus:
+  shortname: dorinfodor
