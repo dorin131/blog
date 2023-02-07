@@ -1,7 +1,6 @@
 theme: minima
 title: Dorin Fodor's Blog
-author:
-  name: Dorin Fodor
+author: Dorin Fodor
 disqus:
   shortname: dorinfodor
 minima:
