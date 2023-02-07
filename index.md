@@ -1,4 +1,4 @@
 ---
-title: Dorin Fodor's Blog
+layout: home
 ---
 
