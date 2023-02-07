@@ -78,21 +78,21 @@ Compiling the library is a necessary step for either statically or dinamically l
 
 Right click on your project and click on **Add Library...**
 
-![Add library](/img/cpp-curlpp-library-static-link/1.png)
+![Add library](/assets/img/cpp-libraries-curlpp-1.png)
 
 Select **External libarary**
 
-![External library](/img/cpp-curlpp-library-static-link/2.png)
+![External library](/assets/img/cpp-libraries-curlpp-2.png)
 
 Choose the newly built library file **libcurlpp.a**. This is telling the IDE that you want to use a statically linked library.
 Also select the **Include path**, which is a folder inside the **curlpp-x.x.x** folder.
 
-![Choose library file](/img/cpp-curlpp-library-static-link/3.png)
+![Choose library file](/assets/img/cpp-libraries-curlpp-3.png)
 
 QT Creator is going to auto-generate new config and place it in your project's *.pro file.
 It is going to look something like this:
 
-![Project file](/img/cpp-curlpp-library-static-link/4.png)
+![Project file](/assets/img/cpp-libraries-curlpp-4.png)
 
 
 ### Conclusion
@@ -100,4 +100,4 @@ It is going to look something like this:
 And that was it. Nothing complicated once you know how to do it :)
 Dorin Browser can now make web requests and get the beautiful source code which I yet have to parse and render.
 
-![Project file](/img/cpp-curlpp-library-static-link/5.png)
+![Project file](/assets/img/cpp-libraries-curlpp-5.png)
