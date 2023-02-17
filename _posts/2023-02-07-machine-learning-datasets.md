@@ -2,8 +2,6 @@
 title: "ML: Machine learning datasets"
 date: 2023-02-08
 ---
-
-# Intro
 When I decided to build my first machine learning model, I realised there are a couple fundamental things I need to figure out first:
 - What do I want to predict?
 - Where do I get the data to train my model?
@@ -13,13 +11,3 @@ Given that the training data is probably the most important thing when it comes 
 - [Google Data Search](https://datasetsearch.research.google.com/)
 - [Kaggle Datasets](https://www.kaggle.com/datasets)
 - [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets.php)
-- 
-
-
-Now that I knew what's available in terms of datasets, I tried to create a mental venn diagram of that and the things that I care about.
-It looked something like this:
-
-
-
-
-# Epilogue
