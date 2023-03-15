@@ -1,5 +1,8 @@
 theme: minima
 title: Dorin Fodor's Blog
+tagline: A software engineer's blog
+url: fodor.org
+locale: en_GB
 author: Dorin Fodor
 disqus:
   shortname: dorinfodor
