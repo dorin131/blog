@@ -3,13 +3,6 @@ title: Dorin Fodor's Blog
 author: Dorin Fodor
 disqus:
   shortname: dorinfodor
-minima:
-  skin: solarized
-  social_links:
-    - { platform: github,  user_url: "https://github.com/dorin131" }
-    - { platform: linkedin, user_url: "https://www.linkedin.com/in/dorin131/" }
-    - { platform: devto, user_url: "https://dev.to/dorin" }
-    - { platform: instagram, user_url: "https://www.instagram.com/the.bird.diary" }
 defaults:
   - scope:
       path: "assets/img"
@@ -17,3 +10,5 @@ defaults:
       image: true
 twitter_username: ml_llama
 github_username:  dorin131
+instagram_username: the.bird.diary
+linkedin_username: dorin131
