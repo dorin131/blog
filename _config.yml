@@ -5,6 +5,7 @@ description: Yet another software engineer's blog writing about programming, mac
 url: fodor.org
 locale: en_GB
 author: Dorin Fodor
+image: "/assets/img/llama_small.jpg"
 disqus:
   shortname: dorinfodor
 defaults:
