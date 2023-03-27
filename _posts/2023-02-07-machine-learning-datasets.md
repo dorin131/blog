@@ -1,5 +1,5 @@
 ---
-title: "ML: Machine learning datasets"
+title: "Machine learning datasets"
 date: 2023-02-08
 ---
 When I decided to build my first machine learning model, I realised there are a couple fundamental things I need to figure out first:
