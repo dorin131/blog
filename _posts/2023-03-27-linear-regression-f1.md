@@ -1,9 +1,7 @@
 ---
 title: "Linear regression from scratch: Predicting F1 results"
-draft: false
-date: 2023-03-27T17:05:00Z
-slug: "linear-regression-f1"
-tags: ["ml", "machine learning", "linear regression", "f1"]
+date: 2023-03-27
+post_description: Building an ML model to predict F1 race results
 ---
 <html>
 <head><meta charset="utf-8" />
