@@ -1,16 +1,15 @@
 ---
-title: "Linear degression from scratch: Predicting F1 results"
+title: "Linear regression from scratch: Predicting F1 results"
 draft: false
 date: 2023-03-27T17:05:00Z
 slug: "linear-regression-f1"
 tags: ["ml", "machine learning", "linear regression", "f1"]
 ---
-Interactive notebook: <a href="https://www.kaggle.com/code/dorin131/f1-predictions-blog">https://www.kaggle.com/code/dorin131/f1-predictions-blog</a>
 <html>
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>f1-predictions-blog</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>f1-predictions-blog (1)</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14604,8 +14603,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Prologue">Prologue<a class="anchor-link" href="#Prologue">&#182;</a></h1><p>The other day I learned how to implement linear regression and have been itching to make good use of this newly acquired knowledge. It's funny how ML can be applied to almost anything but when it came to actually picking one thing, I didn't know what. What would be fun? What is something that I'm interested in? So I start going through the Kaggle dataset catalogue... and, BINGO! <em>F1 results from 1950 to 2020</em>! What can I do with this, thought I. What else than try to predict who's going to win the next race? I suspect it may not the best fit for a linear regression model but it will be fun.</p>
-<h1 id="The-plan">The plan<a class="anchor-link" href="#The-plan">&#182;</a></h1><p>So, the plan is to combine the tables provided in this dataset and end up with a few features that I think may have the biggest effect on the finish position of a driver, together with the actual positions. Let's say...</p>
+<h1 id="Before-we-start">Before we start<a class="anchor-link" href="#Before-we-start">&#182;</a></h1><p>This notebook can be browsed interactively on Kaggle: <a href="https://www.kaggle.com/dorin131/f1-predictions-blog">https://www.kaggle.com/dorin131/f1-predictions-blog</a></p>
+<h1 id="Prologue">Prologue<a class="anchor-link" href="#Prologue">&#182;</a></h1><p>The other day I learned how to implement linear regression and have been itching to make good use of this newly acquired knowledge. It's funny how ML can be applied to almost anything but when it came to actually picking one thing, I didn't know what. What would be fun? What is something that I'm interested in? So I start going through the Kaggle dataset catalogue... and, BINGO! <em>F1 results from 1950 to 2020</em>! What can I do with this? What else than try to predict who's going to win the next race? I suspect it may not the best fit for a linear regression model but it will be fun.</p>
+<h1 id="The-plan">The plan<a class="anchor-link" href="#The-plan">&#182;</a></h1><p>So, the plan is to combine the tables provided in this dataset and end up with a few features that I think may have the biggest effect on the finish position of a driver. Let's say...</p>
 <ul>
 <li><strong>driver standing</strong></li>
 <li><strong>constructor standing</strong></li>
@@ -14622,7 +14622,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Importing some libraries we&#39;re going to need</span>
@@ -18155,7 +18155,7 @@ Prediction:   9, Actual position:  14, Accuracy:  64%
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Now let's see what's the avergae difference between our prediction and the actual result</p>
+<p>Now let's see what's the avergae difference between our prediction and the actual result. In other words, by how many positions are we off on average when making the predictions.</p>
 
 </div>
 </div>
@@ -18203,6 +18203,100 @@ Prediction:   9, Actual position:  14, Accuracy:  64%
 
 </div>
 
+</div>
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="The-Model">The Model<a class="anchor-link" href="#The-Model">&#182;</a></h1><p>So what's our model? Well, here it is:</p>
+
+</div>
+</div>
+</div>
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">driver_standing</span><span class="p">,</span> <span class="n">constructor_standing</span><span class="p">):</span>
+    <span class="n">prediction</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">grid</span><span class="p">,</span> <span class="n">driver_standing</span><span class="p">,</span> <span class="n">constructor_standing</span><span class="p">])</span><span class="o">.</span><span class="n">dot</span><span class="p">([</span><span class="mf">0.34919898</span><span class="p">,</span> <span class="mf">0.16862326</span><span class="p">,</span> <span class="mf">0.47748792</span><span class="p">])</span> <span class="o">+</span> <span class="mf">1.1346913859860654</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">prediction</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Let's take it for a spin then!
+Given a driver starts 3rd on the grid, he's 5th in the driver standings and his team is 2nd in the constructor standings, we predict that he's going to finish.... :drumroll:</p>
+
+</div>
+</div>
+</div>
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">predict</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>4</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>And the answer is <strong>4</strong>!</p>
+
+</div>
+</div>
+</div>
 </div>
 <div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
