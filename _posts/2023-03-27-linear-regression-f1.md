@@ -1,7 +1,7 @@
 ---
 title: "Linear degression from scratch: Predicting F1 results"
 draft: false
-date: 2023-03-27T18:05:00Z
+date: 2023-03-27T17:05:00Z
 slug: "linear-regression-f1"
 tags: ["ml", "machine learning", "linear regression", "f1"]
 ---
