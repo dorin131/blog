@@ -5,7 +5,7 @@ date: 2023-03-27T17:05:00Z
 slug: "linear-regression-f1"
 tags: ["ml", "machine learning", "linear regression", "f1"]
 ---
-<!DOCTYPE html>
+Interactive notebook: https://www.kaggle.com/code/dorin131/f1-predictions-blog
 <html>
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
