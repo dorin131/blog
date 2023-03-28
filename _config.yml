@@ -2,7 +2,6 @@ theme: minima
 title: Dorin Fodor's Blog
 tagline: A software engineer's blog
 description: Yet another software engineer's blog writing about programming, machine learning, algorithms and other stuff.
-url: fodor.org
 locale: en_GB
 author: Dorin Fodor
 disqus:
