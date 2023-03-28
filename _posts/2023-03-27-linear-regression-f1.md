@@ -2,6 +2,7 @@
 title: "Linear regression from scratch: Predicting F1 results"
 date: 2023-03-27
 post_description: Building an ML model to predict F1 race results
+comments: true
 ---
 <html>
 <head><meta charset="utf-8" />
