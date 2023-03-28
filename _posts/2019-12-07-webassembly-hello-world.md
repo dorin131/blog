@@ -47,7 +47,7 @@ Now that you have your very first WebAssembly application, you want a quick and 
 
 To be able to test this function you will have to load the WASM code into JavaScript and call it from there. Our goal is to be able to call our `add()` function with two arguments and read the output number.
 
-The easiest way to do this, that I know if, is using [inline-webassembly](https://www.npmjs.com/package/inline-webassembly) NPM package. And you would end up with a JS file like this:
+The easiest way to do this, that I know of, is using [inline-webassembly](https://www.npmjs.com/package/inline-webassembly) NPM package. And you would end up with a JS file like this:
 
 ```js
 const iw = require('inline-webassembly');
