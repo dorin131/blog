@@ -1,6 +1,6 @@
 ---
 title: "LLMs - an explosion of data"
-date: 2023-02-28
+date: 2023-03-28
 ---
 With the advent of ChatGPT 3 and more complex LLMs that allow each of us to generate seemingly original content with almost no effort, I expect to see an explosion of content on the internet. Just a few months ago, before OpenAI made ChatGPT easily accessible to everyone in the world, creating a new blog post or any kind of other textual content required a significant effort. That's not the case anymore.
 
